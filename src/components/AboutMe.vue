@@ -5,7 +5,7 @@
         <v-container>
             <v-row class="justify-center align-center">
                 <v-col cols="12" md="3" class="text-center">
-                    <v-img src="/src/assets/profile.jpeg" aspect-ratio="1" class="rounded-circle" />
+                    <v-img :src="profile" aspect-ratio="1" class="rounded-circle" />
                 </v-col>
                 <v-col cols="12" md="6">
                     <h2>Shirogane Nana.</h2>
@@ -104,6 +104,8 @@
     </v-container>
 </template>
 <script setup>
+    import profile from '@/assets/profile.jpeg';
+
     const cardSkills = [
         {
             title: 'Frontend',

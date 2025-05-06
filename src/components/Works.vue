@@ -4,61 +4,21 @@
         <div class="line" />
         <v-container class="ma-5">
             <v-row>
-                <v-col cols="6">
+                <v-col cols="5" v-for="work in works_design" :key="work.title">
                     <v-card
                         variant="outlined"
                         class="w-100"
                     >
-                        <v-card-title>Title</v-card-title>
-                        <v-card-subtitle>Subtitle</v-card-subtitle>
-                        <v-card-text>Text</v-card-text>
+                        <v-card-title>{{ work.title }}</v-card-title>
+                        <v-sheet elevation="3" class="ma-10 pa-10 rounded-lg">
+                            <v-img
+                                class=""
+                                :src="work.img"
+                                aspect-ratio="1"
+                            />
+                        </v-sheet>
                         <v-card-actions>
-                            <v-btn color="primary">Action 1</v-btn>
-                            <v-btn color="secondary">Action 2</v-btn>
-                        </v-card-actions>
-                    </v-card>
-                </v-col>
-                <v-col cols="6">
-                    <v-card
-                        variant="outlined"
-                        class="w-100"
-                    >
-                        <v-card-title>Title</v-card-title>
-                        <v-card-subtitle>Subtitle</v-card-subtitle>
-                        <v-card-text>Text</v-card-text>
-                        <v-card-actions>
-                            <v-btn color="primary">Action 1</v-btn>
-                            <v-btn color="secondary">Action 2</v-btn>
-                        </v-card-actions>
-                    </v-card>
-                </v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="6">
-                    <v-card
-                        variant="outlined"
-                        class="w-100"
-                    >
-                        <v-card-title>Title</v-card-title>
-                        <v-card-subtitle>Subtitle</v-card-subtitle>
-                        <v-card-text>Text</v-card-text>
-                        <v-card-actions>
-                            <v-btn color="primary">Action 1</v-btn>
-                            <v-btn color="secondary">Action 2</v-btn>
-                        </v-card-actions>
-                    </v-card>
-                </v-col>
-                <v-col cols="6">
-                    <v-card
-                        variant="outlined"
-                        class="w-100"
-                    >
-                        <v-card-title>Title</v-card-title>
-                        <v-card-subtitle>Subtitle</v-card-subtitle>
-                        <v-card-text>Text</v-card-text>
-                        <v-card-actions>
-                            <v-btn color="primary">Action 1</v-btn>
-                            <v-btn color="secondary">Action 2</v-btn>
+                            <v-btn color="primary">details</v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-col>
@@ -66,6 +26,78 @@
         </v-container>
     </v-container>
 </template>
+<script>
+    import portfolioImg from '@/assets/works_image/portfolio_image.png';
+    import okinawaTripImg from '@/assets/works_image/okinawa_trip_image.png';
+    import fitnessImg from '@/assets/works_image/fitness_image.png';
+    import hamburgerFairImg from '@/assets/works_image/hamburger_fair_image.png';
+    import jobChangeImg from '@/assets/works_image/job_change_image.png';
+
+    const works_design = [
+        {
+            title: 'ポートフォリオサイト',
+            img: portfolioImg,
+            detail: {
+                text: 'このサイトです。<br>デザイン～コーディングまで対応しました。<br>デザイン自体はFigmaで作成し、レスポンシブ対応ができるような作りにしています。<br>コーディングではVue.jsとVuetifyを使用しています。<br>大好きな海をモチーフに、シンプルで見やすくわかりやすいデザインになるように心がけました。',
+                tool: 'Figma / Vue.js / Vuetify / VSCode / Github',
+                optionImg: []
+            }
+        },
+        {
+            title: '沖縄旅行バナー',
+            img: okinawaTripImg,
+            detail: {
+                text: '若者向けの格安旅行のバナーを作成しました。<br>画像は絶景をイメージして選択しています。<br>また、青い空が映えるように余計な装飾は入れずに文字色は白で統一しています。',
+                tool: 'Illustrator',
+                optionImg: []
+            }
+        },
+        {
+            title: '転職サイトバナー',
+            img: jobChangeImg,
+            detail: {
+                text: '転職サイトのバナーを作成しました。<br>未経験からのエンジニアへの転職を希望されている方向けのバナーなので、「未経験」をいう部分を強調しています。<br>また、資料請求の訴求ボタンをグラデーションにして目立たせるようにデザイン、作成してみました。',
+                tool: 'Illustrator',
+                optionImg: []
+            }
+        },
+        {
+            title: '飲食店のフェアバナー',
+            img: hamburgerFairImg,
+            detail: {
+                text: '秋のバーガーフェアのバナーを作成しました。<br>秋なので赤やオレンジなどの暖色系を用いて、温かみのある色合いにしています。',
+                tool: 'Illustrator',
+                optionImg: []
+            }
+        },
+        {
+            title: 'フィットネスジムバナー',
+            img: fitnessImg,
+            detail: {
+                text: '女性専用フィットネスジムの新規オープンに伴うバナーを作成しました。<br>女性専用なのでかわいらしいイメージになるように背景にピンクのフィルターをかけています。',
+                tool: 'Illustrator',
+                optionImg: []
+            }
+        },
+        {
+            title: '配信用オーバーレイ',
+            img: '',
+            detail: {
+                text: '主にVtuber向けの配信用オーバーレイを作成しました。<br>同じデザインを用いてのゲーム配信用オーバーレイと待機中画面の作成も進めたいと考えています。<br>また、After Effectを使用して、簡単なアニメーション付きのものも作成したいと考えています。',
+                tool: 'Illustrator',
+                optionImg: []
+            }
+        }
+    ];
+
+    export default {
+        data() {
+            return {
+                works_design,
+            };
+        },
+    };
+</script>
 <style scoped>
     .works {
         margin-top: 105px;

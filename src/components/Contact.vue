@@ -15,6 +15,7 @@
         flex-direction: column;
         align-items: center;
         padding: 0px 20px;
+        padding-bottom: 100px;
     }
     h3 {
         margin: 0;

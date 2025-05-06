@@ -1,5 +1,5 @@
 <template>
-    <v-footer class="footer" app>
+    <v-footer class="footer">
         © 2025 Shiro.
     </v-footer>
 </template>
@@ -7,10 +7,10 @@
 <style scoped>
     .footer {
         display: flex;
-        position: fixed;
+        position: absolute;
+        bottom: 0;
         box-sizing: border-box;
         width: 100%; /* ヘッダーを画面幅いっぱいに広げる */
-        z-index: 1000; /* 他の要素より前面に表示 */
         
         flex-direction: row;
         justify-content: space-between;
