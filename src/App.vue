@@ -38,4 +38,10 @@
     top: 120px;
     width: 100%;
   }
+
+  .section-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 16px; /* モバイルでも余白あり */
+  }
 </style>

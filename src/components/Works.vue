@@ -1,16 +1,16 @@
 <template>
-    <v-container class="works">
+    <div class="section-wrapper works">
         <h3>WORKS.</h3>
         <div class="line" />
         <v-container class="ma-5">
             <v-row>
-                <v-col cols="5" v-for="work in works_design" :key="work.title">
+                <v-col cols="12" md="6" v-for="work in works_design" :key="work.title">
                     <v-card
                         variant="outlined"
                         class="w-100"
                     >
                         <div class="ma-2 d-flex flex-row align-center justify-center fill-height">
-                            <v-card-title>{{ work.title }}</v-card-title>
+                            <v-card-title color="blue">{{ work.title }}</v-card-title>
                             <v-chip v-if="work.category == 'fictitious'" color="blue">架空</v-chip>
                             <v-chip v-if="work.category == 'originalWork'" color="green">自主制作</v-chip>
                             <v-chip v-if="work.category == 'clientWork'" color="green">クライアントワーク</v-chip>
@@ -35,12 +35,13 @@
             transition="fade-transition"
         >
             <v-card v-if="selectWorks">
-                <v-card-title
-                    class="text-h6 ma-2 d-flex flex-row align-center justify-center fill-height"
+                <v-toolbar
+                    class="pl-2"
+                    color="primary"
                 >
                     {{ selectWorks.title }}
-                </v-card-title>
-                <div class="d-flex flex-row align-center justify-center fill-height">
+                </v-toolbar>
+                <div class="pa-5 d-flex flex-row align-center justify-center fill-height">
                     <v-img
                         :src="selectWorks.img"
                         aspect-ratio="1"
@@ -49,6 +50,8 @@
                 </div>
                 <v-card-text>
                     <div v-html="selectWorks.detail.text" />
+                    <v-divider class="my-4" />
+                    <div v-if="selectWorks.detail.size" class="mt-3">サイズ：{{ selectWorks.detail.size }}</div>
                     <div class="mt-3">使用ツール：{{ selectWorks.detail.tool }}</div>
                 </v-card-text>
                 <v-card-actions>
@@ -57,7 +60,7 @@
                 </v-card-actions>
             </v-card>
         </v-dialog>
-    </v-container>
+    </div>
 </template>
 <script setup>
     import { ref } from 'vue'
@@ -90,6 +93,7 @@
             category: 'originalWork',
             detail: {
                 text: 'このサイトです。<br>デザイン～コーディングまで対応しました。<br>デザイン自体はFigmaで作成し、レスポンシブ対応ができるような作りにしています。<br>コーディングではVue.jsとVuetifyを使用しています。<br>大好きな海をモチーフに、シンプルで見やすくわかりやすいデザインになるように心がけました。',
+                size: '',
                 tool: 'Figma / Vue.js / Vuetify / VSCode / Github',
                 optionImg: []
             }
@@ -100,6 +104,7 @@
             category: 'fictitious',
             detail: {
                 text: '若者向けの格安旅行のバナーを作成しました。<br>画像は絶景をイメージして選択しています。<br>また、青い空が映えるように余計な装飾は入れずに文字色は白で統一しています。',
+                size: '1080 x 1080',
                 tool: 'Illustrator',
                 optionImg: []
             }
@@ -110,6 +115,7 @@
             category: 'fictitious',
             detail: {
                 text: '転職サイトのバナーを作成しました。<br>未経験からのエンジニアへの転職を希望されている方向けのバナーなので、「未経験」をいう部分を強調しています。<br>また、資料請求の訴求ボタンをグラデーションにして目立たせるようにデザイン、作成してみました。',
+                size: '1080 x 1080',
                 tool: 'Illustrator',
                 optionImg: []
             }
@@ -120,7 +126,8 @@
             category: 'fictitious',
             detail: {
                 text: '秋のバーガーフェアのバナーを作成しました。<br>秋なので赤やオレンジなどの暖色系を用いて、温かみのある色合いにしています。',
-                tool: 'Illustrator',
+                size: '1080 x 1080',
+                tool: 'Illustrator / Photoshop',
                 optionImg: []
             }
         },
@@ -130,6 +137,7 @@
             category: 'fictitious',
             detail: {
                 text: '女性専用フィットネスジムの新規オープンに伴うバナーを作成しました。<br>女性専用なのでかわいらしいイメージになるように背景にピンクのフィルターをかけています。',
+                size: '1080 x 1080',
                 tool: 'Illustrator',
                 optionImg: []
             }

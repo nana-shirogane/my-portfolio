@@ -1,12 +1,12 @@
 <template>
-    <v-container class="contact">
+    <div class="section-wrapper contact">
         <h3>CONTACT.</h3>
         <div class="line" />
-        <v-container>
+        <div>
             <h3>xxxxx.xxx@xxx.co.jp</h3>
-            <p>メッセージメッセージメッセージメッセージ</p>
-        </v-container>
-    </v-container>
+            <div class="d-flex align-center justify-center fill-height">メッセージメッセージメッセージメッセージ</div>
+        </div>
+    </div>
 </template>
 <style scoped>
     .contact {

@@ -1,5 +1,5 @@
 <template>
-    <v-container class="about-me">
+    <div class="section-wrapper about-me">
         <h3>ABOUT ME.</h3>
         <div class="line" />
         <v-container>
@@ -52,7 +52,7 @@
                 </v-col>
             </v-row>
         </v-container>
-    </v-container>
+    </div>
 </template>
 <script setup>
     import profile from '@/assets/profile.jpeg';
