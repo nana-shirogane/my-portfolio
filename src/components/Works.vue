@@ -11,20 +11,30 @@
                     >
                         <div class="ma-2 d-flex flex-row align-center justify-center fill-height">
                             <v-card-title color="blue">{{ work.title }}</v-card-title>
-                            <v-chip v-if="work.category == 'fictitious'" color="blue">架空</v-chip>
-                            <v-chip v-if="work.category == 'originalWork'" color="green">自主制作</v-chip>
-                            <v-chip v-if="work.category == 'clientWork'" color="green">クライアントワーク</v-chip>
-                            <v-chip v-if="!work.category" color="grey">未設定</v-chip>
                         </div>
-                        <v-sheet elevation="3" class="ml-10 mr-10 pa-10 rounded-lg">
+                        <v-sheet
+                            class="ml-10 mr-10 pa-10 rounded-lg"
+                            style="cursor: pointer;"
+                            elevation="3"
+                            @click="dialogOpen(work)"
+                        >
                             <v-img
                                 :src="work.img"
                                 aspect-ratio="1"
                             />
                         </v-sheet>
-                        <v-card-actions class="mt-2 mb-2 justify-center">
-                            <v-btn class="details" @click="dialogOpen(work)">details</v-btn>
-                        </v-card-actions>
+                        <div class="ma-2 d-flex flex-row align-center justify-center fill-height">
+                            <v-chip
+                                v-for="category in work.category" :key="category"
+                                class="ma-1" 
+                                variant="outlined"
+                                :color="getCategoryColor(category)"
+                                label
+                            >
+                                {{ getCategoryLabel(category) }}
+                            </v-chip>
+                        </div>
+
                     </v-card>
                 </v-col>
             </v-row>
@@ -35,16 +45,23 @@
             transition="fade-transition"
         >
             <v-card v-if="selectWorks">
-                <v-toolbar
-                    class="pl-2"
-                    color="primary"
-                >
-                    {{ selectWorks.title }}
-                </v-toolbar>
+                <v-card-title class="text-h5">
+                    <div class="d-flex flex-row align-center justify-center fill-height">
+                        {{ selectWorks.title }}
+                        <v-chip
+                            v-for="category in selectWorks.category" :key="category"
+                            class="ma-2" 
+                            variant="outlined"
+                            :color="getCategoryColor(category)"
+                            label
+                        >
+                            {{ getCategoryLabel(category) }}
+                        </v-chip>
+                    </div>
+                </v-card-title>
                 <div class="pa-5 d-flex flex-row align-center justify-center fill-height">
                     <v-img
                         :src="selectWorks.img"
-                        aspect-ratio="1"
                         max-width="500"
                     />
                 </div>
@@ -52,7 +69,7 @@
                     <div v-html="selectWorks.detail.text" />
                     <v-divider class="my-4" />
                     <div v-if="selectWorks.detail.size" class="mt-3">サイズ：{{ selectWorks.detail.size }}</div>
-                    <div class="mt-3">使用ツール：{{ selectWorks.detail.tool }}</div>
+                    <div>使用ツール：{{ selectWorks.detail.tool }}</div>
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer />
@@ -90,7 +107,7 @@
         {
             title: 'ポートフォリオサイト',
             img: portfolioImg,
-            category: 'originalWork',
+            category: ['originalWork', 'webSite'],
             detail: {
                 text: 'このサイトです。<br>デザイン～コーディングまで対応しました。<br>デザイン自体はFigmaで作成し、レスポンシブ対応ができるような作りにしています。<br>コーディングではVue.jsとVuetifyを使用しています。<br>大好きな海をモチーフに、シンプルで見やすくわかりやすいデザインになるように心がけました。',
                 size: '',
@@ -101,32 +118,32 @@
         {
             title: '沖縄旅行バナー',
             img: okinawaTripImg,
-            category: 'fictitious',
+            category: ['originalWork', 'banner'],
             detail: {
                 text: '若者向けの格安旅行のバナーを作成しました。<br>画像は絶景をイメージして選択しています。<br>また、青い空が映えるように余計な装飾は入れずに文字色は白で統一しています。',
                 size: '1080 x 1080',
-                tool: 'Illustrator',
+                tool: 'Illustrator / Photoshop',
                 optionImg: []
             }
         },
         {
             title: '転職サイトバナー',
             img: jobChangeImg,
-            category: 'fictitious',
+            category: ['originalWork', 'banner'],
             detail: {
                 text: '転職サイトのバナーを作成しました。<br>未経験からのエンジニアへの転職を希望されている方向けのバナーなので、「未経験」をいう部分を強調しています。<br>また、資料請求の訴求ボタンをグラデーションにして目立たせるようにデザイン、作成してみました。',
                 size: '1080 x 1080',
-                tool: 'Illustrator',
+                tool: 'Illustrator / Photoshop',
                 optionImg: []
             }
         },
         {
             title: '飲食店のフェアバナー',
             img: hamburgerFairImg,
-            category: 'fictitious',
+            category: ['originalWork', 'banner'],
             detail: {
-                text: '秋のバーガーフェアのバナーを作成しました。<br>秋なので赤やオレンジなどの暖色系を用いて、温かみのある色合いにしています。',
-                size: '1080 x 1080',
+                text: '秋のバーガーフェアのバナーを作成しました。<br>秋イメージなので赤やオレンジなどの暖色系を用いて、温かみのある色合いにしています。',
+                size: '1080 x 1350',
                 tool: 'Illustrator / Photoshop',
                 optionImg: []
             }
@@ -134,10 +151,10 @@
         {
             title: 'フィットネスジムバナー',
             img: fitnessImg,
-            category: 'fictitious',
+            category: ['originalWork', 'banner'],
             detail: {
                 text: '女性専用フィットネスジムの新規オープンに伴うバナーを作成しました。<br>女性専用なのでかわいらしいイメージになるように背景にピンクのフィルターをかけています。',
-                size: '1080 x 1080',
+                size: '1200 x 628',
                 tool: 'Illustrator',
                 optionImg: []
             }
@@ -145,14 +162,49 @@
         {
             title: '配信用オーバーレイ',
             img: streamingOverlayImg,
-            category: 'fictitious',
+            category: ['originalWork', 'other'],
             detail: {
                 text: '主にVtuber向けの配信用オーバーレイを作成しました。<br>同じデザインを用いてのゲーム配信用オーバーレイと待機中画面の作成も進めたいと考えています。<br>また、After Effectを使用して、簡単なアニメーション付きのものも作成したいと考えています。',
+                size: '1920 x 1080',
                 tool: 'Illustrator',
                 optionImg: []
             }
         }
     ];
+
+    const getCategoryLabel = (category) => {
+        switch (category) {
+            case 'originalWork':
+                return '#自主制作';
+            case 'clientWork':
+                return '#クライアントワーク';
+            case 'banner':
+                return '#バナー';
+            case 'webSite':
+                return '#WEBサイト';
+            case 'other':
+                return '#その他';
+            default:
+                return '#未設定';
+        }
+    };
+
+    const getCategoryColor = (category) => {
+        switch (category) {
+            case 'originalWork':
+                return '#0097A7';
+            case 'clientWork':
+                return '#0097A7';
+            case 'banner':
+                return '#01579B';
+            case 'webSite':
+                return '#01579B';
+            case 'other':
+                return '#01579B';
+            default:
+                return 'grey';
+        }
+    };
 </script>
 <style scoped>
     .works {
@@ -161,6 +213,7 @@
         flex-direction: column;
         align-items: center;
         padding: 0px 20px;
+        color: #4D4D4D;
     }
     h3 {
         margin: 0;
