@@ -2,7 +2,7 @@
     <v-footer class="footer">
         <div class="d-flex align-center">
             <div>© 2025 Shiro.</div>
-            <v-btn color="#FFFFFF" variant="text" href="/my-portfolio/licenses.html" style="text-transform: none">Licenses</v-btn>
+            <v-btn color="#FFFFFF" variant="text" href="/licenses.html" style="text-transform: none">Licenses</v-btn>
         </div>
         
     </v-footer>
