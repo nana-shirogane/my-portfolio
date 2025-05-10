@@ -3,7 +3,6 @@
   import Header from './components/Header.vue';
   import Works from './components/Works.vue';
   import AboutMe from './components/AboutMe.vue';
-  import Contact from './components/Contact.vue';
   import Footer from './components/Footer.vue';
 
   onMounted(() => {
@@ -29,17 +28,24 @@
         <div class="first-view-text d-flex align-center justify-center fill-height">
           <div class="text-h1 font-weight-bold" >Thank you for<br>visiting my portfolio.</div>
         </div>
+        <div class="scroll_down">
+          <div class="arrow"></div>
+          <div class="arrow"></div>
+          <div class="arrow"></div>
+          <span class="text">Scroll</span>
+        </div>
       </div>
       <v-container fluid class="pa-10">
         <Works />
         <AboutMe />
-        <Contact />
       </v-container>
     </v-main>
     <Footer />
   </v-app>
 </template>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap');
+
   html,
   body {
     margin: 0;
@@ -89,5 +95,69 @@
     max-width: 960px;
     margin: 0 auto;
     padding: 0 16px; /* モバイルでも余白あり */
+  }
+
+  .scroll_down{
+    position:absolute;
+    bottom:50px;
+    right:2%;
+    animation: arrowmove 1s ease-in-out infinite;
+    z-index: 10;
+  }
+
+  .text {
+    display: block;
+    margin-top: 70px;
+    margin-left: -14px;
+    font-size: 12px;
+    color: #4D4D4D;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: 2px;
+  }
+
+  .arrow {
+    position: absolute;
+    width: 28px;
+    height: 5px;
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 0.5);
+    animation: move 3s ease-out infinite;
+  }
+
+  .arrow:first-child {
+    animation: move 3s ease-out 1s infinite;
+  }
+
+  .arrow:nth-child(2) {
+    animation: move 3s ease-out 2s infinite;
+  }
+
+  .arrow:before,
+  .arrow:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 51%;
+    background: #4D4D4D;
+  }
+
+  .arrow:before {
+    left: 0;
+    transform: skew(0deg, 30deg);
+  }
+
+  .arrow:after {
+    right: 0;
+    width: 50%;
+    transform: skew(0deg, -30deg);
+  }
+
+  @keyframes move {
+    25% { opacity: 1; }
+    33% { opacity: 1; transform: translateY(30px); }
+    67% { opacity: 1; transform: translateY(40px); }
+    100% { opacity: 0; transform: translateY(55px) scale3d(0.5, 0.5, 0.5); }
   }
 </style>

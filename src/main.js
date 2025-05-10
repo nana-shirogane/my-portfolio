@@ -5,6 +5,9 @@ import App from './App.vue'
 import { createVuetify } from 'vuetify';
 import 'vuetify/styles'; // ←必須
 import '@mdi/font/css/materialdesignicons.css';
+import VueScrollTo from "vue-scrollto";
 
+const app = createApp(App);
+app.use(VueScrollTo);
 const vuetify = createVuetify();
-createApp(App).use(vuetify).mount('#app');
+app.use(vuetify).mount('#app');

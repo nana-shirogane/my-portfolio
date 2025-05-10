@@ -1,5 +1,5 @@
 <template>
-    <div class="section-wrapper about-me">
+    <div id="about" class="section-wrapper about-me">
         <h3>ABOUT ME.</h3>
         <div class="line" />
         <v-container>
@@ -7,29 +7,34 @@
                 <v-col cols="12" md="3" class="text-center">
                     <v-img :src="profile" aspect-ratio="1" class="rounded-circle" />
                 </v-col>
-                <v-col cols="12" md="6">
+                <v-col cols="12" md="6" style="color: #4D4D4D">
                     <h2>Shiro.</h2>
                     <p>
                         1994年生まれ、大阪府出身。<br>
                         大学卒業後はテーマパークで販売職として従事。<br>
                         その後転職して現在はエンジニアとして働く傍ら、<br>
-                        デザインの勉強を進めています。
+                        デザインの勉強を進めています。<br>
+                        好きなことは食べることと旅行。
                     </p>
                 </v-col>
             </v-row>
         </v-container>
         <v-container>
+            <h3 class="text-h5 font-weight-bold mb-4">Career</h3>
             <v-timeline side="end">
                 <v-timeline-item
                     v-for="(item, i) in careerHistory" :key="i"
-                    :dot-color="i % 2 === 0 ? 'blue' : 'green'"
+                    dot-color="#1565C0"
+                    size="x-small"
+                    style="color: #4D4D4D"
                 >
-                    <div class="text-h6">{{ item.date }}<br>{{ item.title }}</div>
+                    <div class="text-h6" >{{ item.date }}<br>{{ item.title }}</div>
                     <p v-html="item.content" />
                 </v-timeline-item>
             </v-timeline>
         </v-container>
         <v-container>
+            <h3 class="text-h5 font-weight-bold mt-10 mb-4">Skills</h3>
             <v-row class="justify-center">
                 <v-col
                     v-for="(skill, i) in cardSkills"
@@ -41,16 +46,29 @@
                 >
                     <v-sheet
                         class="pa-6 text-center"
-                        elevation="2"
                         rounded
-                        color="blue-grey-lighten-5"
+                        color="#FFFFFF"
+                        border="lg opacity-12"
                     >
-                        <v-icon size="40" color="primary" class="mb-3">{{ skill.icon }}</v-icon>
-                        <h3 class="text-subtitle-1 font-weight-medium mb-2">{{ skill.title }}</h3>
-                        <p class="text-body-2">{{ skill.content }}</p>
+                        <v-icon size="40" color="#1E88E5" class="mb-3">{{ skill.icon }}</v-icon>
+                        <h3 class="text-subtitle-1 font-weight-medium" style="color: #4D4D4D">{{ skill.title }}</h3>
+                        <p class="text-body-2" style="color: #4D4D4D">{{ skill.content }}</p>
                     </v-sheet>
                 </v-col>
             </v-row>
+        </v-container>
+        <v-container>
+            <h3 class="text-h5 font-weight-bold mt-10 mb-4">Contact</h3>
+            <v-btn
+                href="mailto:shiro467.works&#64;gmail.com"
+                color="#1E88E5"
+                size="x-large"
+                variant="outlined"
+                prepend-icon="mdi-email"
+            >
+                お問い合わせはこちら
+            </v-btn>
+            <div class="mt-2" style="color: #4D4D4D">※返信に時間がかかる場合がございます。予めご了承ください。<br>　1週間経っても返信がない場合は、お手数ですが再度送信していただきますようお願いいたします。</div>
         </v-container>
     </div>
 </template>
@@ -110,6 +128,7 @@
         flex-direction: column;
         align-items: center;
         padding: 0px 20px;
+        padding-bottom: 100px;
     }
     h3 {
         margin: 0;

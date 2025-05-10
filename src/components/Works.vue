@@ -1,5 +1,5 @@
 <template>
-    <div class="section-wrapper works">
+    <div id="works" class="section-wrapper works">
         <h3>WORKS.</h3>
         <div class="line" />
         <v-container class="ma-5">
@@ -92,7 +92,6 @@
     const selectWorks = ref(null);
     // ダイアログを開く
     const dialogOpen = (work) => {
-        console.log(work);
         isOpen.value = true;
         selectWorks.value = work;
     };
