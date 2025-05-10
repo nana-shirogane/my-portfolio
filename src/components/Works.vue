@@ -13,9 +13,9 @@
                             <v-card-title color="blue">{{ work.title }}</v-card-title>
                         </div>
                         <v-sheet
-                            class="ml-10 mr-10 pa-10 rounded-lg"
+                            class="ml-5 mr-5 pa-3 rounded-lg"
                             style="cursor: pointer;"
-                            elevation="3"
+                            elevation="2"
                             @click="dialogOpen(work)"
                         >
                             <v-img

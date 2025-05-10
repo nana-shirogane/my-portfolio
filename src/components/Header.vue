@@ -16,7 +16,7 @@
         class="px-6"
         style="background: linear-gradient(180deg,rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 100%);"
     >
-        <v-toolbar-title class="font-weight-bold text-h3" style="color: #4D4D4D">
+        <v-toolbar-title class="font-weight-bold text-h4 text-sm-h3" style="color: #4D4D4D">
             Shiro.
         </v-toolbar-title>
         <template v-slot:append>
