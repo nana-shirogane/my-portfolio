@@ -60,7 +60,7 @@
                 </v-col>
             </v-row>
         </v-container>
-        <v-container>
+        <!-- <v-container>
             <h3 class="text-h5 font-weight-bold mt-10 mb-4">Contact</h3>
             <v-btn
                 href="mailto:shiro467.works&#64;gmail.com"
@@ -72,7 +72,7 @@
                 お問い合わせはこちら
             </v-btn>
             <div class="mt-2" style="color: #4D4D4D">※返信に時間がかかる場合がございます。予めご了承ください。<br>1週間経っても返信がない場合は、お手数ですが再度送信していただきますようお願いいたします。</div>
-        </v-container>
+        </v-container> -->
     </div>
 </template>
 <script setup>
