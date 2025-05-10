@@ -14,7 +14,7 @@
         app
         flat
         class="px-6"
-        style="background: linear-gradient(180deg,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);"
+        style="background: linear-gradient(180deg,rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 100%);"
     >
         <v-toolbar-title class="font-weight-bold text-h3" style="color: #4D4D4D">
             Shiro.
