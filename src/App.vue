@@ -22,7 +22,7 @@
 <template>
   <v-app>
     <Header />
-    <v-main class="bg-transparent" style="padding-top: 0;">
+    <v-main class="bg-transparent" style="padding-top: 0; padding-bottom: 0;">
       <div class="first-view">
         <canvas class="background-bubbly"></canvas>
         <div class="first-view-text d-flex align-center justify-center fill-height">

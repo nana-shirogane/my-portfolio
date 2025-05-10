@@ -8,7 +8,10 @@
                     <v-img :src="profile" aspect-ratio="1" class="rounded-circle" />
                 </v-col>
                 <v-col cols="12" md="6" style="color: #4D4D4D">
-                    <h2>Shiro.</h2>
+                    <div class="d-flex flex-row align-center fill-height">
+                        <h2 class="mr-2">Shiro.</h2>
+                        <a href="https://x.com/shiro46_777" target="_blank"><img :src="x" alt="works" class="x-logo" /></a>
+                    </div>
                     <p>
                         1994年生まれ、大阪府出身。<br>
                         大学卒業後はテーマパークで販売職として従事。<br>
@@ -74,6 +77,7 @@
 </template>
 <script setup>
     import profile from '@/assets/profile.jpeg';
+    import x from '@/assets/x_logo.svg';
 
     const careerHistory = [
         {
@@ -150,5 +154,10 @@
         width: 1400px;
         border: 1.5px solid #4D4D4D;
         margin: 10px 0; 
+    }
+
+    .x-logo {
+        width: 20px;
+        height: 20px;
     }
 </style>
