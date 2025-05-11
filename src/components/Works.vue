@@ -48,15 +48,6 @@
                 <v-card-title class="text-h5">
                     <div class="d-flex flex-row align-center justify-center fill-height">
                         {{ selectWorks.title }}
-                        <v-chip
-                            v-for="category in selectWorks.category" :key="category"
-                            class="ma-2" 
-                            variant="outlined"
-                            :color="getCategoryColor(category)"
-                            label
-                        >
-                            {{ getCategoryLabel(category) }}
-                        </v-chip>
                     </div>
                 </v-card-title>
                 <div class="pa-5 d-flex flex-row align-center justify-center fill-height">
@@ -70,6 +61,16 @@
                     <v-divider class="my-4" />
                     <div v-if="selectWorks.detail.size" class="mt-3">サイズ：{{ selectWorks.detail.size }}</div>
                     <div>使用ツール：{{ selectWorks.detail.tool }}</div>
+                    <v-divider class="my-4" />
+                    <v-chip
+                        v-for="category in selectWorks.category" :key="category"
+                        class="ma-2" 
+                        variant="outlined"
+                        :color="getCategoryColor(category)"
+                        label
+                    >
+                        {{ getCategoryLabel(category) }}
+                    </v-chip>
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer />
